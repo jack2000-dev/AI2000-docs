@@ -1,0 +1,13 @@
+[project]
+name = "ai2000-docs"
+version = "0.1.0"
+description = "AI2000 Docs — personal knowledge base for AI tips, skills, and MCP resources"
+readme = "README.md"
+license = { text = "GPL-3.0-only" }
+requires-python = ">=3.13"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "zensical>=0.0.39",
+]
