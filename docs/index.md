@@ -1,17 +1,33 @@
 # AI2000 Docs
 
-Personal knowledge base for AI tips, best practices, Claude Code skills, and MCP servers.
+A personal knowledge base for AI tips, resources, and patterns I've found useful — from foundations to day-to-day workflow.
 
 > Storing what works. Skipping what doesn't.
 
-## Sections
+## What this site is
 
-- :material-lightbulb-on: **[Best Practices](best-practices/index.md)** — prompting tips, workflow habits, what to do and what to avoid.
-- :material-tools: **[Skills](skills/index.md)** — Claude Code skills, custom skill notes.
-- :material-server-network: **[MCP](mcp/index.md)** — Model Context Protocol servers worth using.
+Curated notes on AI/LLM tooling, prompting, agents, and the Claude Code extension ecosystem (skills, MCP, plugins). Maintained for my own reference, public so others can browse.
+
+Not a tutorial site. Not exhaustive. Just signal.
+
+## How it's organized
+
+| Section | What's inside |
+|---------|---------------|
+| :material-school: **[Foundations](foundations/index.md)** | Theory: AI/ML/LLM concepts, context windows, model landscape, fine tuning, distillation. |
+| :material-lightbulb-on: **[Best Practices](best-practices/index.md)** | Workflow: SDLC, security, prompt engineering, token optimization, orchestration, agents, anti-slop. |
+| :material-puzzle: **[Extensions](extensions/index.md)** | Claude Code extensibility surface — skills, MCP servers, plugins. |
+| :material-tools: **[Tools](tools/index.md)** | Tech stacks and tooling I actually use. |
+| :material-book-open: **[Resources](resources/index.md)** | Where I learn — courses, papers, channels, blogs. |
 
 ## Use this site
 
-- **Search** anything in the top bar.
-- Each section has an **Overview** page, then specific topics.
+- **Search** anything in the top bar (top-right).
+- Each section opens with an **Overview** then drills into specific topics.
 - Code blocks have **copy buttons**.
+- Pages end with **References** linking primary sources.
+
+## See also
+
+- [JACK2000-dev Pages](https://jack2000-dev.github.io/)
+- [DAB](https://jack2000-dev.github.io/DAB/) - Data Analysis Bible

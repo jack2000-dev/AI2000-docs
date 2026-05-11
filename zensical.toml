@@ -13,9 +13,38 @@ Copyright &copy; 2026 jack2000-dev
 
 nav = [
   { Home = "index.md" },
-  { "Best Practices" = "best-practices/index.md" },
-  { Skills = "skills/index.md" },
-  { MCP = "mcp/index.md" },
+  { Foundations = [
+    { Overview = "foundations/index.md" },
+    { "AI / ML / LLM" = "foundations/ai-ml-llm.md" },
+    { "Context Windows" = "foundations/context-windows.md" },
+    { "Open-Source Models" = "foundations/open-source-models.md" },
+    { "Fine Tuning" = "foundations/fine-tuning.md" },
+    { Distillation = "foundations/distillation.md" },
+  ]},
+  { "Best Practices" = [
+    { Overview = "best-practices/index.md" },
+    { "SDLC Framework" = "best-practices/sdlc.md" },
+    { "Security First" = "best-practices/security.md" },
+    { "Avoid AI Slop" = "best-practices/avoid-ai-slop.md" },
+    { "Prompt Engineering" = "best-practices/prompt-engineering.md" },
+    { "Token Optimization" = "best-practices/token-optimization.md" },
+    { Orchestration = "best-practices/orchestration.md" },
+    { "AI Agents" = "best-practices/agents.md" },
+  ]},
+  { Extensions = [
+    { Overview = "extensions/index.md" },
+    { Skills = "extensions/skills.md" },
+    { MCP = "extensions/mcp.md" },
+    { Plugins = "extensions/plugins.md" },
+  ]},
+  { Tools = [
+    { Overview = "tools/index.md" },
+    { "Tech Stack" = "tools/tech-stack.md" },
+  ]},
+  { Resources = [
+    { Overview = "resources/index.md" },
+    { "Learning Sources" = "resources/learning-sources.md" },
+  ]},
 ]
 
 [project.theme]

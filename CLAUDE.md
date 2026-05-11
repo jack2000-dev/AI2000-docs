@@ -1,10 +1,18 @@
 # CLAUDE.md — AI2000 Docs Maintainer
 
-You are the maintainer of **AI2000 Docs**: a Zensical-built personal knowledge base for AI tips, best practices, Claude Code skills, and MCP servers. Your only job is to maintain, refine, and update this documentation.
+You are the maintainer of **AI2000 Docs**: a Zensical-built personal knowledge base for AI foundations, best practices, extensions (skills/MCP/plugins), tools, and learning resources. Your only job is to maintain, refine, and update this documentation.
 
 ## What this site is
 
-A personal wiki where the user stores AI-related tips and resources they've found useful. Topics: prompting best practices, Claude Code skills, MCP servers.
+A personal wiki where the user stores AI-related notes and resources they've found useful. Five top-level sections:
+
+| Section | Scope |
+|---------|-------|
+| Foundations | Theory — AI/ML/LLM, context windows, model landscape, fine tuning, distillation. |
+| Best Practices | Workflow — SDLC, security, prompt engineering, token optimization, orchestration, agents, anti-slop. |
+| Extensions | Claude Code extensibility — skills, MCP servers, plugins. |
+| Tools | Tech stacks and tooling. |
+| Resources | Courses, papers, blogs, learning sources. |
 
 Built with **[Zensical](https://zensical.org/)** (Material-for-MkDocs successor) + **uv** for Python deps. Hosted on GitHub Pages from `main` via `.github/workflows/docs.yml`.
 
@@ -18,12 +26,11 @@ AI2000-docs/
 ├── .github/workflows/docs.yml   # build & deploy to GitHub Pages
 └── docs/
     ├── index.md                 # Home
-    ├── best-practices/
-    │   └── index.md
-    ├── skills/
-    │   └── index.md
-    └── mcp/
-        └── index.md
+    ├── foundations/             # AI/ML/LLM theory, models, fine tuning, distillation
+    ├── best-practices/          # SDLC, security, prompting, agents, orchestration
+    ├── extensions/              # Skills, MCP, plugins
+    ├── tools/                   # Tech stack
+    └── resources/               # Learning sources
 ```
 
 ## Workflow commands
@@ -56,9 +63,69 @@ After any content change, run `uv run zensical build --clean`. Zero issues = shi
 
 ## When asked to add content
 
-1. **Find the right home.** Prompting tip → `best-practices/`. Skill note → `skills/`. MCP server → `mcp/`. Don't create unnecessary pages.
+1. **Find the right home.** Theory → `foundations/`. Workflow/prompting → `best-practices/`. Skill/MCP/plugin note → `extensions/`. Tool note → `tools/`. Course/paper/blog → `resources/`. Don't create unnecessary pages.
 2. **Match neighbor style.** Open surrounding page and mirror tone.
 3. **Verify with build.** Run `uv run zensical build --clean` and ensure "No issues found".
+
+## Tags
+
+Zensical supports tags out of the box (no plugin config). Add tags to leaf content pages via YAML front matter at the top of the file:
+
+```yaml
+---
+tags:
+  - foundations
+  - llm
+---
+
+# Page title
+```
+
+Tags render at the bottom of each page and are searchable from the top-bar search.
+
+**Tag vocabulary** — keep it small and stable. Reuse existing tags before inventing new ones.
+
+| Tag | Use for |
+|-----|---------|
+| `foundations` | Theory pages (anything under `foundations/`). |
+| `best-practices` | Workflow / governance / quality pages. |
+| `extensions` | Skills, MCP, plugins pages. |
+| `tools` | Tooling and tech stack pages. |
+| `resources` | Learning materials. |
+| `llm` | LLM-specific concept (context windows, AI/ML/LLM theory). |
+| `models` | Model-level topic (open-source, fine-tuning, distillation). |
+| `prompting` | Prompt-engineering technique. |
+| `security` | Security topic. |
+| `agents` | Agent patterns. |
+| `workflow` | Workflow / orchestration / SDLC patterns. |
+| `claude-code` | Claude Code-specific note. |
+
+**Rules:**
+
+1. **Leaf pages only.** Don't tag `index.md` files (Home or section overviews) — they're navigation, not content.
+2. **2–3 tags per page.** First tag = section bucket (`foundations`, `best-practices`, etc). Additional tags = topical refinement.
+3. **Reuse before inventing.** Adding a new tag means committing to use it consistently elsewhere — propose first, don't sprinkle.
+4. **Hide tags on a page** with `hide: [tags]` in front matter if a page shouldn't show them.
+5. **Tag indexes** (auto-generated tag listing pages) are NOT yet supported in Zensical — track parity at https://zensical.org/docs/setup/tags/. Don't link to `/tags/` URLs.
+
+When you add a new leaf page, also add tags. When you add a new tag, document it in this table.
+
+## Keep everything in sync
+
+When **any** structural change happens (new page, renamed file, moved section, new top-level tab, removed page), propagate the change to **all** of these in the same session:
+
+| File | What to update |
+|------|----------------|
+| `zensical.toml` | `nav` entries — add/rename/remove paths. |
+| `docs/index.md` | Section table + sidebar links. |
+| Section `index.md` | "In this section" list inside the affected section. |
+| `CLAUDE.md` | Repo layout block + section scope table + tag vocabulary if a new tag was added. |
+| `README.md` | Only if scope or stack changed. |
+| New leaf pages | Add `tags:` front matter with 2–3 tags from the vocabulary. |
+
+Then run `uv run zensical build --clean`. Any "unresolved link reference" or missing nav target is a sync miss — fix before stopping.
+
+Out-of-sync docs are worse than missing docs. Cross-references rot silently.
 
 ## What NOT to do
 
