@@ -19,10 +19,10 @@ _To fill._
 
 _To fill._
 
-## Blogs
+## Blogs / Articles
 
-_To fill._
-
+- [Build iterative repair loops with Codex](https://developers.openai.com/cookbook/examples/codex/build_iterative_repair_loops_with_codex)
+- [Best practices for Claude Code](https://code.claude.com/docs/en/best-practices)
 ## Newsletters
 
 _To fill._
